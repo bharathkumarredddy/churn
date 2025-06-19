@@ -5,4 +5,4 @@ numpy==1.26.4
 scikit-learn==1.6.1
 lime==0.2.0.1
 joblib==1.5.1
-tensorflow==2.16.1  # Now compatible with Python 3.12
+tensorflow==2.16.1; python_version < '3.13'
