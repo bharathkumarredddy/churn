@@ -21,7 +21,6 @@ feature_names = numerical_features + categorical_features
 # Load raw training data
 X_train_raw = pd.read_csv("Telco-Customer-Churn.csv")
 
-
 X_train_raw['TotalCharges'] = pd.to_numeric(X_train_raw['TotalCharges'], errors='coerce')
 
 # Initialize LabelEncoders using actual data
@@ -143,4 +142,4 @@ def predict():
         return f"Error: {str(e)}"
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=10000)
