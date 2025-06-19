@@ -5,9 +5,15 @@ import lime
 import lime.lime_tabular
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
+import os
+from pathlib import Path
+
+# Get the directory of the current script
+BASE_DIR = Path(__file__).resolve().parent
 
 # Load trained RandomForestClassifier model
-model = pickle.load(open("RFC_Model", "rb"))
+model_path = BASE_DIR / "RFC_Model"
+model = pickle.load(open(model_path, "rb"))
 
 
 
