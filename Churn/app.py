@@ -7,7 +7,9 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
 # Load trained RandomForestClassifier model
-model = pickle.load(open(r"C:\Users\Lenovo\Downloads\Churn\Churn\RFC_Model", "rb"))
+model = pickle.load(open("RFC_Model", "rb"))
+
+
 
 # Define features
 numerical_features = ['tenure', 'MonthlyCharges', 'TotalCharges']
@@ -17,7 +19,9 @@ categorical_features = ['Contract', 'TechSupport', 'OnlineSecurity', 'InternetSe
 feature_names = numerical_features + categorical_features
 
 # Load raw training data
-X_train_raw = pd.read_csv("Churn/Telco-Customer-Churn.csv")
+X_train_raw = pd.read_csv("Telco-Customer-Churn.csv")
+
+
 X_train_raw['TotalCharges'] = pd.to_numeric(X_train_raw['TotalCharges'], errors='coerce')
 
 # Initialize LabelEncoders using actual data
