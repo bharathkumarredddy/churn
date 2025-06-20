@@ -6,10 +6,14 @@ import lime.lime_tabular
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 import os
+import sys
 from pathlib import Path
 
-# Get the directory of the current script
-BASE_DIR = Path(__file__).resolve().parent
+current_file = Path(__file__).resolve()
+BASE_DIR = current_file.parent
+# Add the repository root to Python path
+REPO_ROOT = BASE_DIR.parent
+sys.path.append(str(REPO_ROOT))
 
 # Load trained RandomForestClassifier model
 model_path = BASE_DIR / "RFC_Model"
@@ -149,3 +153,7 @@ def predict():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=10000)
+print(f"BASE_DIR: {BASE_DIR}")
+print(f"Files in BASE_DIR: {list(BASE_DIR.glob('*'))}")
+print(f"REPO_ROOT: {REPO_ROOT}")
+print(f"Files in REPO_ROOT: {list(REPO_ROOT.glob('*'))}")
